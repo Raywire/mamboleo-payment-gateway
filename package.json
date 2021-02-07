@@ -15,7 +15,9 @@
     "test": "NODE_ENV=test npm run reset:db && NODE_ENV=test nyc mocha --require @babel/register --timeout 10000 src/tests/**/*.spec.js",
     "coveralls-coverage": "nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc report --reporter=lcov && npm run coveralls-coverage",
-    "postinstall": "sequelize db:migrate"
+    "postinstall": "sequelize db:migrate",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "payment",
@@ -28,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.9.2",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "celebrate": "^12.0.1",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",
@@ -40,7 +42,8 @@
     "passport-jwt": "^4.0.0",
     "pg": "^7.18.2",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.5"
+    "sequelize": "^5.21.5",
+    "snyk": "^1.446.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -65,5 +68,6 @@
     "sinon": "^9.0.1",
     "sinon-chai": "^3.5.0",
     "sinon-express-mock": "^2.2.1"
-  }
+  },
+  "snyk": true
 }
